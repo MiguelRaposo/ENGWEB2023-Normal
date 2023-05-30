@@ -15,6 +15,18 @@ router.get('/', function(req, res, next) {
     })
 });
 
+router.get('/especies/:id', function(req, res, next) {
+  var data = new Date().toISOString().substring(0, 16)
+  axios.get("http://localhost:15030/plantas?especie="+req.params.id)
+      .then(dados=>{
+        if (dados.data.length!=0) res.render('especie', { especies: dados.data, d:data });
+        else res.render('error', { error: erro,message:"Especie inesixtente!"});
+      })
+      .catch(erro=>{
+        res.render('error', { error: erro,message:"Erro a obter lista de plantas" });
+      })
+});
+
 router.get('/:id', function(req, res, next) {
   var data = new Date().toISOString().substring(0, 16)
   axios.get("http://localhost:15030/plantas/"+req.params.id)
