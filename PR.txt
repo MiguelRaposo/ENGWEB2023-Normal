@@ -3,7 +3,7 @@ Exercíci o 1: Plantas (API de dados)
 1.1 Setup
 Alterei o atributo Id para _id utilizando search and replace.
 
-comando: 
+comando para import: 
     mongoimport -d plantas -c plantas --file plantas.json --jsonArray
 
 1.2 Queries (warm-up)
