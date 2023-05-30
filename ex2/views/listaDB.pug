@@ -11,10 +11,9 @@ block content
           th Espécie
           th Número de intervenções
         each planta in plantas
-          tr(onclick='changePage(\"' + planta._id + '\")')
-            td= planta._id
+            td #[a(href="/"+planta._id)= planta._id]
             td= planta.Freguesia
-            td= planta.Espécie
+            td #[a(href="/especies/"+planta.Espécie)= planta.Espécie]
             td= planta.Estado
             td= planta['Número de intervenções']
               
